@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>时间线笔记</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500&family=Noto+Serif+SC:wght@300;400&display=swap" rel="stylesheet">
@@ -198,6 +198,8 @@ body {
 
 /* ── Mobile breakpoint ── */
 @media (max-width: 640px) {
+  /* Prevent iOS Safari auto-zoom on input focus */
+  input, textarea, select { font-size: 16px !important; }
   #sidebar {
     position: fixed; top: 0; left: 0; height: 100dvh;
     transform: translateX(-100%);
