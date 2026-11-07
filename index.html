@@ -545,7 +545,9 @@ document.getElementById("modal-sync").addEventListener("click",e=>{if(e.target==
 document.getElementById("modal-sync-clear").addEventListener("click",()=>{if(confirm("清除本机保存的 Token？")){clearToken();setSyncStatus("","未配置同步");closeSyncModal();}});
 document.getElementById("modal-sync-ok").addEventListener("click",async()=>{
   const t=document.getElementById("sync-token-input").value.trim();if(!t)return;
-  setToken(t);closeSyncModal();await pullFromGist();
+  setToken(t);closeSyncModal();
+  // Push local data first to avoid overwriting unsaved changes
+  await pushToGist();
 });
 
 document.getElementById("tl-list").addEventListener("click",e=>{
